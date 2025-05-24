@@ -1,5 +1,4 @@
 // src/pages/Tech.js
-import React from "react";
 import { Helmet } from "react-helmet";
 import { Container, Typography, Card, CardContent, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -56,7 +55,7 @@ export default function Tech() {
                   variant="body1"
                   sx={{
                     fontSize: { xs: "1rem", sm: "1.1rem" },
-                    color: "#616161",
+                    color: "#3E3E3E",
                   }} // Darker gray for body text
                 >
                   {tech.description}
