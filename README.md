@@ -3,9 +3,21 @@
 ## Navigation 
 
 - [Research](#research)
+- [Dependency](#dependency)
 <hr>
 
 ## Research
+## Dependency
+Dependency Overview: (tools and their purpose in this project)
+
+| Dependency/Tool         | Purpose                                                        |
+|-------------------------|----------------------------------------------------------------|
+| React Router            | Enable multi-page navigation within the SPA.                   |
+| Firebase (Firestore & Auth) | Store and retrieve Research links; authenticate admin.     |
+| EmailJS (Browser SDK)   | Send emails from the Contact form (no backend needed).         |
+| React Helmet (optional) | Manage page `<title>` and meta tags for SEO.                   |
+| CSS Framework (optional)| e.g. Bootstrap or Material-UI for responsive design (optional).|
+| Netlify (hosting)       | Host the site, with continuous deployment from GitHub.         |
 
 
 
