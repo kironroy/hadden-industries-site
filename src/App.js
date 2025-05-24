@@ -7,6 +7,7 @@ import {
   Navigate,
 } from "react-router-dom";
 // Import your page components:
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Tech from "./pages/Tech";
 // import Products from "./pages/Products";
@@ -18,7 +19,7 @@ function App() {
   return (
     <Router>
       {/* You can include a Navbar here so it appears on all pages */}
-      {/* <Navbar /> */}
+      <Navbar /> {/* Navbar will be shown on all routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tech" element={<Tech />} />

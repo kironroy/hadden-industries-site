@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+h1 { 
+  font-weight: 700;
+}
+
+p {
+  font-weight: 400;
+}
+
+.tech-container {
+  background-color: #eee; /* Slightly darker than white */
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.tech-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #212121;
+}
+
+/* Adjust sizes for mobile */
+@media (max-width: 768px) {
+  .tech-title {
+    font-size: 2.6rem; /* Bigger H1 for mobile */
+  }
+  
+  .tech-heading {
+    font-size: 1.9rem; /* Bigger H2 for mobile */
+  }
+  
+  .tech-description {
+    font-size: 1.6rem; /* Larger paragraph text */
+  }
+
+  .icon-style {
+    font-size: 3.5rem; /* Bigger icons */
+  }
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px; /* Adds spacing between cards */
+}
+
+.tech-card {
+  background: #fff;
+  padding: 16px;
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tech-heading {
+  font-size: 1.5rem;
+  color: #424242;
+  display: flex;
+  align-items: center; /* Align icon with text */
+}
+
+.tech-description {
+  font-size: 1rem;
+  color: #3e3e3e;
+}
+
+.tech-link a {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #0505ff; /* Default blue for links */
+}
+
+.icon-style {
+  font-size: 1.5rem;
+  margin-right: 10px; /* Space between icon and text */
+  color: #ff8205; /* Vivid orange */
+}
