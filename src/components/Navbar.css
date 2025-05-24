@@ -1,30 +1,81 @@
+/* Navbar Styles */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b0b0b;
+  padding: 15px 30px; /* Slightly more padding for better spacing */
+}
+
+.logo {
+  color: #ffff05;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px; /* Increased spacing for laptop screens */
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav-links li a:hover {
+  color: #ffff05;
+}
+
+/* Mobile Styles */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive Menu */
+@media (max-width: 1024px) { 
+  /* Medium screens (laptops) */
+  .navbar {
     padding: 10px 20px;
   }
-  
-  .logo {
-    color: #ff8205;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
+
   .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+    gap: 30px; /* Slightly reduced spacing on medium screens */
   }
-  
-  .nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  /* Mobile screens */
+  .hamburger {
+    display: block; /* Show button on mobile */
   }
-  
-  .nav-links li a:hover {
-    color: #ff8205;
+
+  .nav-links {
+    display: none; /* Hide menu by default */
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #292929;
+    width: 100vw;
+    padding: 15px 0;
+    z-index: 1000;
   }
-  
+
+  .nav-links.open {
+    display: flex; /* Show menu when button clicked */
+  }
+
+  .nav-links li {
+    margin: 10px 0; /* Adjusted spacing */
+  }
+}

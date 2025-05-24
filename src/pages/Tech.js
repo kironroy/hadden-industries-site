@@ -48,45 +48,45 @@ export default function Tech() {
 // Technology data array with links and icons
 const techData = [
   {
+    title: "Algae",
+    description:
+      "Exploring bioengineering solutions with algae for fuel, food, and environmental applications.",
+    link: "/algae",
+    icon: <FaLeaf className="icon-style" />,
+  },
+  {
     title: "Fusion",
     description:
       "Harnessing the power of nuclear fusion to create a sustainable energy source for the future.",
     link: "/fusion",
-    icon: <FaAtom className="icon-style"/>,
+    icon: <FaAtom className="icon-style" />,
   },
   {
     title: "Hydrogen",
     description:
       "Advancing hydrogen energy for clean fuel applications, including transportation and industry.",
     link: "/hydrogen",
-    icon: <FaWind className="icon-style"/>,
-  },
-  {
-    title: "Solar",
-    description:
-      "Innovating next-generation solar technologies to maximize efficiency and affordability.",
-    link: "/solar",
-    icon: <FaSun className="icon-style"/>,
-  },
-  {
-    title: "Water",
-    description:
-      "Developing advanced water purification and desalination techniques for global sustainability.",
-    link: "/water",
-    icon: <FaWater className="icon-style"/>,
-  },
-  {
-    title: "Algae",
-    description:
-      "Exploring bioengineering solutions with algae for fuel, food, and environmental applications.",
-    link: "/algae",
-    icon: <FaLeaf className="icon-style"/>,
+    icon: <FaWind className="icon-style" />,
   },
   {
     title: "Materials Design",
     description:
       "Pioneering new materials with enhanced properties for aerospace, medical, and industrial use.",
     link: "/materials-design",
-    icon: <FaFlask className="icon-style"/>,
+    icon: <FaFlask className="icon-style" />,
+  },
+  {
+    title: "Solar",
+    description:
+      "Innovating next-generation solar technologies to maximize efficiency and affordability.",
+    link: "/solar",
+    icon: <FaSun className="icon-style" />,
+  },
+  {
+    title: "Water",
+    description:
+      "Developing advanced water purification and desalination techniques for global sustainability.",
+    link: "/water",
+    icon: <FaWater className="icon-style" />,
   },
 ];
