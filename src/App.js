@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+// Import your page components:
+import Home from "./pages/Home";
+import Tech from "./pages/Tech";
+// import Products from "./pages/Products";
+// import Research from "./pages/Research";
+// import Contact from "./pages/Contact";
+// import Admin from "./pages/Admin"; // for admin login/panel
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* You can include a Navbar here so it appears on all pages */}
+      {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tech" element={<Tech />} />
+        {/* <Route path="/products" element={<Products />} /> */}
+        {/* <Route path="/research" element={<Research />} /> */}
+        {/* <Route path="/contact" element={<Contact />} /> */}
+        {/* <Route path="/admin" element={<Admin />} /> */}
+        {/* Redirect or catch-all route for any undefined URLs: */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
   );
 }
 
