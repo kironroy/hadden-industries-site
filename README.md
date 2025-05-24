@@ -1,4 +1,16 @@
-# Getting Started with Create React App
+# Hadden Industries 
+
+## Navigation 
+
+- [Research](#research)
+<hr>
+
+## Research
+
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
