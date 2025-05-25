@@ -14,7 +14,8 @@ import {
 import { db, auth } from "../firebase";
 import "./Research.css";
 
-const ADMIN_UID = "oRnHYjBgi0Yf6jSPGv9ACkJEsq13";
+const ADMIN_UID = process.env.REACT_APP_ADMIN_UID;
+
 
 const Research = () => {
   const [items, setItems] = useState([]);
