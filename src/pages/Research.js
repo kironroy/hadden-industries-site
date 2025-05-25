@@ -10,7 +10,6 @@ import "./Research.css";
 
 const ADMIN_UID = process.env.REACT_APP_ADMIN_UID;
 
-
 const Research = () => {
   const [items, setItems] = useState([]);
   const [newTitle, setNewTitle] = useState("");
@@ -22,21 +21,26 @@ const Research = () => {
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  // Fetch existing research items from Firestore
+  // Fetch research items, ensuring visibility for all users
   useEffect(() => {
     const fetchItems = async () => {
-      const querySnapshot = await getDocs(collection(db, "research"));
-      const dataArr = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setItems(dataArr);
+      try {
+        console.log("Fetching research items...");
+        const querySnapshot = await getDocs(collection(db, "research"));
+        const dataArr = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setItems(dataArr);
+      } catch (error) {
+        console.error("Error fetching research items:", error);
+      }
     };
 
     fetchItems();
   }, []);
 
-  // Check authentication status and admin privileges
+  // Authentication status check
   useEffect(() => {
     onAuthStateChanged(auth, (loggedInUser) => {
       console.log("User detected:", loggedInUser);
@@ -68,10 +72,10 @@ const Research = () => {
     }
   };
 
-  // Function to Add a New Research Item to Firestore
+  // Function to Add a New Research Item to Firestore (Admin Only)
   const handleAdd = async (e) => {
     e.preventDefault();
-    if (!isAdmin) return; // Only allow admin to add
+    if (!isAdmin) return;
 
     try {
       const newItem = {
@@ -82,9 +86,8 @@ const Research = () => {
       };
 
       const docRef = await addDoc(collection(db, "research"), newItem);
-      setItems([...items, { id: docRef.id, ...newItem }]); // Update UI dynamically
+      setItems([...items, { id: docRef.id, ...newItem }]);
 
-      // Clear form fields
       setNewTitle("");
       setNewSummary("");
       setNewType("");
@@ -98,7 +101,6 @@ const Research = () => {
     <div className="research-container">
       <h1>Research</h1>
 
-      {/* Login Form for Admin - shows only if no user is signed in */}
       {!user && (
         <form onSubmit={handleLogin}>
           <input
@@ -119,8 +121,6 @@ const Research = () => {
 
       {user && <button onClick={handleLogout}>Logout</button>}
 
-      {/* Admin Only: Form to Add Research Items.
-          This will be rendered only if the user is signed in and recognized as the admin */}
       {user && isAdmin && (
         <form onSubmit={handleAdd}>
           <input
@@ -151,7 +151,6 @@ const Research = () => {
         </form>
       )}
 
-      {/* Display Research Items */}
       <ul className="research-list">
         {items.map((item) => (
           <li key={item.id} className="research-item">
