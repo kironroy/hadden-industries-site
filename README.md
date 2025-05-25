@@ -4,6 +4,7 @@
 
 - [Research](#research)
 - [Dependency](#dependency)
+- [Sources](#sources)
 <hr>
 
 ## Research
@@ -19,7 +20,8 @@ Dependency Overview: (tools and their purpose in this project)
 | CSS Framework (optional)| e.g. Bootstrap or Material-UI for responsive design (optional).|
 | Netlify (hosting)       | Host the site, with continuous deployment from GitHub.         |
 
-
+## Sources
+      [Hadden Image homepage](https://www.gtalumni.org/s/1481/alumni/17/magazine-pages.aspx?pgid=13309&gid=21&cid=30091)
 
 
 ## Getting Started with Create React App
