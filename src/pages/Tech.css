@@ -1,15 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
 * {
   font-family: "IBM Plex Sans", sans-serif;
 }
 
-h1 { 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
   font-weight: 700;
 }
 
 p {
   font-weight: 400;
+  font-size: 1.3em;
 }
 
 .tech-container {
@@ -18,30 +25,21 @@ p {
   padding: 20px;
 }
 
+nav {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.tech-heading {
+  font-size: 3rem; /* Bigger H2 for mobile */
+}
+
 .tech-title {
   text-align: center;
   font-size: 2rem;
   color: #212121;
 }
 
-/* Adjust sizes for mobile */
-@media (max-width: 768px) {
-  .tech-title {
-    font-size: 2.6rem; /* Bigger H1 for mobile */
-  }
-  
-  .tech-heading {
-    font-size: 1.9rem; /* Bigger H2 for mobile */
-  }
-  
-  .tech-description {
-    font-size: 1.6rem; /* Larger paragraph text */
-  }
-
-  .icon-style {
-    font-size: 3.5rem; /* Bigger icons */
-  }
-}
 
 .tech-grid {
   display: flex;
@@ -59,14 +57,16 @@ p {
 }
 
 .tech-heading {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: #424242;
   display: flex;
   align-items: center; /* Align icon with text */
 }
 
+
+
 .tech-description {
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #3e3e3e;
 }
 
@@ -81,4 +81,28 @@ p {
   font-size: 1.5rem;
   margin-right: 10px; /* Space between icon and text */
   color: #ff8205; /* Vivid orange */
+}
+
+/* Adjust sizes for mobile */
+@media (max-width: 768px) {
+  .tech-title {
+    font-size: 3rem; /* Bigger H1 for mobile */
+  }
+
+  .tech-description {
+    font-size: 1.4rem; /* Larger paragraph text */
+  }
+
+  .icon-style {
+    font-size: 3.5rem; /* Bigger icons */
+  }
+
+  .tech-container {
+    background-color: #eee; /* Slightly darker than white */
+    margin-top: -4px;
+  }
+  .tech-heading {
+    font-size: 1.8rem;
+  }
+
 }
