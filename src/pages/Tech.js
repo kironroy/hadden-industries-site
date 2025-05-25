@@ -55,6 +55,13 @@ const techData = [
     icon: <FaLeaf className="icon-style" />,
   },
   {
+    title: "Batteries",
+    description:
+      "Pushing the boundaries of batteries. Smaller and more efficient.",
+    link: "/batteries",
+    icon: <FaLeaf className="icon-style" />,
+  },
+  {
     title: "Fusion",
     description:
       "Harnessing the power of nuclear fusion to create a sustainable energy source for the future.",
