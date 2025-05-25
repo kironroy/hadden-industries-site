@@ -8,7 +8,7 @@ import {
 import { db, auth } from "../firebase";
 import "./Research.css";
 
-const ADMIN_UID = "2iw96cK6nLOyphahvYnxfc6k18T2"; // Replace with actual admin UID
+const ADMIN_UID = "oRnHYjBgi0Yf6jSPGv9ACkJEsq13";
 
 const Research = () => {
   const [items, setItems] = useState([]);
@@ -16,10 +16,10 @@ const Research = () => {
   const [newSummary, setNewSummary] = useState("");
   const [newType, setNewType] = useState("");
   const [newLink, setNewLink] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   // Fetch existing research items from Firestore
   useEffect(() => {
@@ -37,9 +37,10 @@ const Research = () => {
 
   // Check authentication status and admin privileges
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      setUser(user);
-      setIsAdmin(user?.uid === ADMIN_UID);
+    onAuthStateChanged(auth, (loggedInUser) => {
+      console.log("User detected:", loggedInUser);
+      setUser(loggedInUser);
+      setIsAdmin(loggedInUser?.uid === ADMIN_UID);
     });
   }, []);
 
@@ -59,6 +60,7 @@ const Research = () => {
     try {
       await signOut(auth);
       console.log("Logged out");
+      setUser(null);
       setIsAdmin(false);
     } catch (error) {
       console.error("Logout failed", error);
@@ -95,7 +97,7 @@ const Research = () => {
     <div className="research-container">
       <h1>Research</h1>
 
-      {/* Login Form for Admin */}
+      {/* Login Form for Admin - shows only if no user is signed in */}
       {!user && (
         <form onSubmit={handleLogin}>
           <input
@@ -116,8 +118,9 @@ const Research = () => {
 
       {user && <button onClick={handleLogout}>Logout</button>}
 
-      {/* Admin Only: Form to Add Research Items */}
-      {isAdmin && (
+      {/* Admin Only: Form to Add Research Items.
+          This will be rendered only if the user is signed in and recognized as the admin */}
+      {user && isAdmin && (
         <form onSubmit={handleAdd}>
           <input
             value={newTitle}
