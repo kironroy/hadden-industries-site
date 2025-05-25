@@ -63,8 +63,7 @@ const techData = [
   },
   {
     title: "Fusion",
-    description:
-      "Harnessing the power of nuclear fusion to create a sustainable energy source for the future.",
+    description: "Using nuclear fusion to generate clean and lasting energy..",
     link: "/fusion",
     icon: <FaAtom className="icon-style" />,
   },
