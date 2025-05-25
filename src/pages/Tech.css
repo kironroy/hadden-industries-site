@@ -20,7 +20,7 @@ p {
 }
 
 .tech-container {
-  background-color: #eee; /* Slightly darker than white */
+  background-color: #efefef; /* Slightly darker than white */
   min-height: 100vh;
   padding: 20px;
 }
@@ -78,7 +78,7 @@ nav {
 .icon-style {
   font-size: 1.5rem;
   margin-right: 10px; /* Space between icon and text */
-  color: #ff8205;
+  color: #ff8205;  
   filter: contrast(0.8);
 }
 
@@ -97,7 +97,6 @@ nav {
   }
 
   .tech-container {
-    background-color: #eee; /* Slightly darker than white */
     margin-top: -4px;
   }
   .tech-heading {
