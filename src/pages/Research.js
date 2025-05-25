@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  collection,
-  getDocs,
-  addDoc,
-  deleteDoc,
-  doc,
-} from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -100,18 +94,6 @@ const Research = () => {
     }
   };
 
-  // **New Function to Delete Research Items**
-  const handleDelete = async (id) => {
-    if (!isAdmin) return; // Only allow admin to delete
-
-    try {
-      await deleteDoc(doc(db, "research", id));
-      setItems(items.filter((item) => item.id !== id)); // Update UI after deletion
-    } catch (error) {
-      console.error("Error deleting document: ", error);
-    }
-  };
-
   return (
     <div className="research-container">
       <h1>Research</h1>
@@ -137,7 +119,8 @@ const Research = () => {
 
       {user && <button onClick={handleLogout}>Logout</button>}
 
-      {/* Admin Only: Form to Add Research Items */}
+      {/* Admin Only: Form to Add Research Items.
+          This will be rendered only if the user is signed in and recognized as the admin */}
       {user && isAdmin && (
         <form onSubmit={handleAdd}>
           <input
@@ -168,7 +151,7 @@ const Research = () => {
         </form>
       )}
 
-      {/* Display Research Items with Delete Option */}
+      {/* Display Research Items */}
       <ul className="research-list">
         {items.map((item) => (
           <li key={item.id} className="research-item">
@@ -181,10 +164,6 @@ const Research = () => {
                 {item.link}
               </a>
             </p>
-            {/* Show delete button only if the admin is logged in */}
-            {isAdmin && (
-              <button onClick={() => handleDelete(item.id)}>Delete</button>
-            )}
           </li>
         ))}
       </ul>
