@@ -9,6 +9,7 @@ import {
   FaLeaf,
   FaFlask,
   FaWind,
+  FaBatteryFull
 } from "react-icons/fa"; // Importing icons
 import "./Tech.css"; // CSS file
 
@@ -30,7 +31,6 @@ export default function Tech() {
           <div className="tech-card" key={index}>
             <h2 className="tech-heading">
               <span className="tech-icon">{tech.icon}</span>{" "}
-              {/* Icon next to H2 */}
               {tech.title}
             </h2>
             <p className="tech-description">{tech.description}</p>
@@ -59,7 +59,7 @@ const techData = [
     description:
       "Pushing the boundaries of batteries. Smaller and more efficient.",
     link: "/batteries",
-    icon: <FaLeaf className="icon-style" />,
+    icon: <FaBatteryFull className="icon-style" />,
   },
   {
     title: "Fusion",
