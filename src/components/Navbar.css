@@ -21,16 +21,16 @@
 }
 
 .logo-icon {
-  width: 55px; /* Adjust icon size as needed */
+  width: 60px; /* Adjust icon size as needed */
   height: auto;
   margin-right: 10px; /* Space between icon and text */
 }
 
 .logo {
-  font-size: 2.3rem;
-  font-weight: bold;
+  font-size: 2.5rem;
+  font-weight: 500;
   color: #ffff05;
-  letter-spacing: -0.9px;
+  letter-spacing: -1px;
   text-decoration: none; /* Ensures the H1 text itself has no underline */
 }
 
@@ -58,7 +58,7 @@
   font-size: 3.3rem;
   color: white;
   cursor: pointer;
-  padding-bottom: 20px; /* Adjusted for better alignment */
+  padding-bottom: 30px; /* Adjusted for better alignment */
 }
 
 /* Responsive Menu */

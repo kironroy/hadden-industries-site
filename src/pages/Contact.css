@@ -77,9 +77,6 @@
     margin: 30px auto;
     padding: 15px;
   }
-  .contact-container h2 {
-    font-size: 3em;
-  }
   .contact-container input,
   .contact-container textarea {
     font-size: 14px;
@@ -97,7 +94,7 @@
     padding: 15px;
   }
   .contact-container h2 {
-    font-size: 3em;
+    font-size: 2em;
   }
   .contact-container input,
   .contact-container textarea {
