@@ -32,6 +32,7 @@ nav {
 
 .tech-heading {
   font-size: 3rem; /* Bigger H2 for mobile */
+  letter-spacing: -0.9px;
 }
 
 .tech-title {
