@@ -63,10 +63,13 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 1.3rem;
 }
 
 /* Individual Research Item */
 .research-item {
+  font-size: 1.3rem;
+
   background: #efefef;
   padding: 20px;
   margin-bottom: 12px;
@@ -86,13 +89,14 @@ form {
 .research-item h3 {
   margin: 0;
   color: #333;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .research-item p {
   margin: 6px 0;
-  color: #555;
-  font-size: 16px;
+  color: #282828;
+  font-size: 1.3rem;
+  
 }
 
 /* Link Styles */

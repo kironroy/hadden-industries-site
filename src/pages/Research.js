@@ -103,6 +103,11 @@ const Research = () => {
   const handleDelete = async (id) => {
     if (!isAdmin) return; // Only allow admin to delete
 
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this item?"
+    );
+    if (!confirmDelete) return; // If user cancels, exit function
+
     try {
       await deleteDoc(doc(db, "research", id));
       setItems(items.filter((item) => item.id !== id)); // Update UI after deletion
@@ -110,6 +115,7 @@ const Research = () => {
       console.error("Error deleting document: ", error);
     }
   };
+  
 
   return (
     <div className="research-container">
