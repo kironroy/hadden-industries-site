@@ -1,46 +1,51 @@
-.home-container {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    line-height: 1.5;
-    max-width: 750px; /* Restrict width for readability */
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-left: auto;
-    margin-right: auto; /* Centers paragraph */
-  }
-  
-  img {
-    display: block;
-    margin: auto;
-    max-width: 50%;
-    height: auto;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 1.5em;
-    }
-  
-    p {
-      font-size: 1em;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
-    img {
-        max-width: 100%;
-      }
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.home-container {
+  text-align: center;
+  font-weight: 700;
+}
+
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  max-width: 750px; /* Restrict width for readability */
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-left: auto;
+  margin-right: auto; /* Centers paragraph */
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-width: 50%;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
   }
-  
+
+  p {
+    font-size: 1.3em;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
