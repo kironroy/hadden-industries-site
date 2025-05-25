@@ -1,4 +1,5 @@
 # Hadden Industries 
+🔗 [Hadden live](https://hadden.netlify.app/)
 
 ## Navigation 
 
