@@ -1,5 +1,4 @@
 // App.js
-import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,9 +9,9 @@ import {
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Tech from "./pages/Tech";
-// import Products from "./pages/Products";
-// import Research from "./pages/Research";
+import Research from "./pages/Research";
 import Contact from "./pages/Contact";
+// import Products from "./pages/Products";
 // import Admin from "./pages/Admin"; // for admin login/panel
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/tech" element={<Tech />} />
         {/* <Route path="/products" element={<Products />} /> */}
-        {/* <Route path="/research" element={<Research />} /> */}
+        <Route path="/research" element={<Research />} />
         <Route path="/contact" element={<Contact />} />
         {/* <Route path="/admin" element={<Admin />} /> */}
         {/* Redirect or catch-all route for any undefined URLs: */}
