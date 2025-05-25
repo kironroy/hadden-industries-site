@@ -7,10 +7,30 @@
   padding: 15px 30px; /* Slightly more padding for better spacing */
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Creates space between logo and menu on mobile if needed */
+}
+
+/* This rule makes sure there's no underline on the logo link */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 80px; /* Adjust icon size as needed */
+  height: auto;
+  margin-right: 10px; /* Space between icon and text */
+}
+
 .logo {
-  color: #ffff05;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: bold;
+  color: #ff8205;
+  text-decoration: none; /* Ensures the H1 text itself has no underline */
 }
 
 .nav-links {
@@ -44,6 +64,7 @@
   /* Medium screens (laptops) */
   .navbar {
     padding: 10px 20px;
+    margin-bottom: 5px;
   }
 
   .nav-links {
@@ -62,7 +83,7 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 60px;
+    top: 80px; /* Adjusted from 60px to 80px to push menu lower */
     left: 0;
     right: 0;
     background-color: #292929;

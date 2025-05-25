@@ -1,18 +1,24 @@
 // src/components/Navbar.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { ReactComponent as LogoIcon } from "../assets/hadden.svg"; // Make sure your SVG is in src/assets/
 import "./Navbar.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLinkClick = () => {
-    setMenuOpen(false); // Close the menu when a link is clicked
+    setMenuOpen(false); // Close menu when a link is clicked
   };
 
   return (
     <nav className="navbar">
-      <div className="logo">Hadden Industries</div>
+      <div className="logo-container">
+        <Link to="/" onClick={handleLinkClick} className="logo-link">
+          <LogoIcon className="logo-icon" /> {/* SVG Icon */}
+          <h1 className="logo">Hadden</h1>
+        </Link>
+      </div>
       <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </button>
