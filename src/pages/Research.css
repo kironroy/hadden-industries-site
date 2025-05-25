@@ -9,6 +9,10 @@ form {
     margin-left: auto;
     margin-right: auto;
   }
+
+  h1 {
+    font-size: 2rem;
+  }
   
   /* Input Fields */
   input {
@@ -28,12 +32,12 @@ form {
   /* Submit Button */
   button {
     padding: 12px;
-    background-color: #007bff;
+    background-color: #0505ff;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 16px;
+    font-weight: 600;
     transition: background 0.3s ease-in-out;
   }
   
@@ -92,8 +96,8 @@ form {
 
 /* Link Styles */
 .research-item a {
-  font-weight: bold;
-  color: #007bff;
+  font-weight: 600;
+  color: #0505ff;
   text-decoration: none;
 }
 

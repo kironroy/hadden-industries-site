@@ -85,7 +85,7 @@ nav {
 /* Adjust sizes for mobile */
 @media (max-width: 768px) {
   .tech-title {
-    font-size: 3rem; /* Bigger H1 for mobile */
+    font-size: 2rem; /* Bigger H1 for mobile */
   }
 
   .tech-description {
