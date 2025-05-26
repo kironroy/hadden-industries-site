@@ -195,7 +195,7 @@ const Research = () => {
       <div className="search-bar">
         <input
           type="text"
-          placeholder="🔍 Search by title, summary, or type..."
+          placeholder="🔍 Search"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
