@@ -55,7 +55,7 @@ const techData = [
   {
     title: "Batteries",
     description: "Efficient battery tech.",
-    linklink: "/products#algae",
+    link: "/products#algae",
     icon: <FaBatteryFull className="icon-style" />,
   },
   {
@@ -73,7 +73,7 @@ const techData = [
   {
     title: "Materials Design",
     description: "Innovative materials.",
-    link:  link: "/products#algae",
+    link: "/products#algae",
     icon: <FaFlask className="icon-style" />,
   },
   {
