@@ -1,6 +1,7 @@
 /* General Styles */
 body {
   background-color: #fff;
+  font-family: Arial, sans-serif;
 }
 
 /* Center the research section */
@@ -12,6 +13,17 @@ body {
   width: 100%;
   margin-top: 20px;
 }
+
+.research-item a {
+  font-weight: 600;
+  color: #0505ff;
+  text-decoration: none;
+  word-wrap: break-word; /* Ensures links wrap */
+  overflow-wrap: break-word; /* Alternative wrapping method */
+  display: inline-block; /* Helps maintain container boundaries */
+  max-width: 100%; /* Prevents links from exceeding container */
+}
+
 
 /* Form Styling */
 form {
@@ -27,6 +39,7 @@ form {
 
 h1 {
   font-size: 2rem;
+  text-align: center;
 }
 
 /* Input Fields */
@@ -47,7 +60,6 @@ input:focus {
 /* Button Styles */
 button {
   padding: 12px;
-  background-color: #0505ff;
   color: white;
   border: none;
   cursor: pointer;
@@ -57,8 +69,33 @@ button {
   font-size: 1.3rem;
 }
 
+/* Default Button */
 button:hover {
   background-color: #0056b3;
+}
+
+/* Styling for Edit and Delete Buttons */
+.button-group {
+  display: flex;
+  gap: 10px; /* Adds spacing between buttons */
+}
+
+/* Edit Button */
+.edit-btn {
+  background-color: #0505ff; /* Keep the edit button blue */
+}
+
+.edit-btn:hover {
+  background-color: #003bb3;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #ff4d4d; /* Make delete button red */
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
 }
 
 /* List Styling */
@@ -105,7 +142,7 @@ hr {
 
 .research-item p {
   color: #222;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 /* Link Styles */
@@ -134,5 +171,15 @@ hr {
   .research-item {
     width: 90%;
     max-width: 400px;
+  }
+
+  .research-item p {
+    color: #222;
+    font-size: 1.1rem;
+  }
+
+  .button-group {
+    flex-direction: column; /* Stack buttons on smaller screens */
+    align-items: center;
   }
 }

@@ -5,6 +5,7 @@ import {
   addDoc,
   doc,
   deleteDoc,
+  updateDoc,
 } from "firebase/firestore";
 import {
   onAuthStateChanged,
@@ -26,6 +27,11 @@ const Research = () => {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+  const [editTitle, setEditTitle] = useState("");
+  const [editSummary, setEditSummary] = useState("");
+  const [editType, setEditType] = useState("");
+  const [editLink, setEditLink] = useState("");
 
   // Fetch research items, ensuring visibility for all users
   useEffect(() => {
@@ -121,6 +127,49 @@ const Research = () => {
     }
   };
 
+  // Function to Enable Edit Mode
+  const handleEditClick = (item) => {
+    setEditingId(item.id);
+    setEditTitle(item.title);
+    setEditSummary(item.summary);
+    setEditType(item.type);
+    setEditLink(item.link);
+  };
+
+  // Function to Update Firestore Entry
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    if (!isAdmin || !editingId) return;
+
+    try {
+      const docRef = doc(db, "research", editingId);
+      await updateDoc(docRef, {
+        title: editTitle.trim(),
+        summary: editSummary.trim(),
+        type: editType.trim(),
+        link: editLink.trim(),
+      });
+
+      setItems(
+        items.map((item) =>
+          item.id === editingId
+            ? {
+                ...item,
+                title: editTitle,
+                summary: editSummary,
+                type: editType,
+                link: editLink,
+              }
+            : item
+        )
+      );
+
+      setEditingId(null); // Exit edit mode
+    } catch (error) {
+      console.error("Error updating document:", error);
+    }
+  };
+
   return (
     <div className="research-container">
       <h1>Research</h1>
@@ -139,7 +188,20 @@ const Research = () => {
                 </a>
               </p>
               {user && isAdmin && (
-                <button onClick={() => handleDelete(item.id)}>Delete</button>
+                <div className="button-group">
+                  <button
+                    className="edit-btn"
+                    onClick={() => handleEditClick(item)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               )}
             </li>
             <hr />
@@ -147,37 +209,38 @@ const Research = () => {
         ))}
       </ul>
 
-      {user && <button onClick={handleLogout}>Logout</button>}
-
-      {user && isAdmin && (
-        <form onSubmit={handleAdd}>
+      {editingId && (
+        <form onSubmit={handleUpdate}>
           <input
-            value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
+            value={editTitle}
+            onChange={(e) => setEditTitle(e.target.value)}
             placeholder="Title"
             required
           />
           <input
-            value={newSummary}
-            onChange={(e) => setNewSummary(e.target.value)}
+            value={editSummary}
+            onChange={(e) => setEditSummary(e.target.value)}
             placeholder="Summary"
             required
           />
           <input
-            value={newType}
-            onChange={(e) => setNewType(e.target.value)}
+            value={editType}
+            onChange={(e) => setEditType(e.target.value)}
             placeholder="Type"
             required
           />
           <input
-            value={newLink}
-            onChange={(e) => setNewLink(e.target.value)}
+            value={editLink}
+            onChange={(e) => setEditLink(e.target.value)}
             placeholder="Link URL"
             required
           />
-          <button type="submit">Add Item</button>
+          <button type="submit">Update Item</button>
+          <button onClick={() => setEditingId(null)}>Cancel</button>
         </form>
       )}
+
+      {user && <button onClick={handleLogout}>Logout</button>}
 
       {!user && (
         <div className="login-container">
