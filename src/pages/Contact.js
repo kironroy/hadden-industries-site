@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Contact.css";
 
 const Contact = () => {
-  useEffect(() => {
-    document.title = "Hadden Industries - Contact";
-  }, []);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",

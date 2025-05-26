@@ -18,10 +18,6 @@ import "./Research.css";
 const ADMIN_UID = process.env.REACT_APP_ADMIN_UID;
 
 const Research = () => {
-  useEffect(() => {
-    document.title = "Hadden Industries - Research";
-  }, []);
-
   const [items, setItems] = useState([]);
   const [newTitle, setNewTitle] = useState("");
   const [newSummary, setNewSummary] = useState("");
@@ -36,6 +32,7 @@ const Research = () => {
   const [editSummary, setEditSummary] = useState("");
   const [editType, setEditType] = useState("");
   const [editLink, setEditLink] = useState("");
+  // New state for the dynamic search input and error message
   const [searchQuery, setSearchQuery] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -65,6 +62,7 @@ const Research = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    // Reset any previous error
     setErrorMessage("");
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -72,9 +70,10 @@ const Research = () => {
         email,
         password
       );
+      // Check if the logged in user is the ADMIN
       if (userCredential.user.uid !== ADMIN_UID) {
         setErrorMessage(`You are not authorized to sign in email: ${email}`);
-        await signOut(auth);
+        await signOut(auth); // sign out unauthorized user immediately
         return;
       }
     } catch (error) {
@@ -88,6 +87,7 @@ const Research = () => {
       await signOut(auth);
       setUser(null);
       setIsAdmin(false);
+      // Also clear any error message on logout
       setErrorMessage("");
     } catch (error) {
       console.error("Logout failed", error);
@@ -175,6 +175,7 @@ const Research = () => {
     }
   };
 
+  // Filter items by title, summary, or type and sort alphabetically by title
   const filteredItems = items
     .filter((item) => {
       const lowerCaseQuery = searchQuery.toLowerCase();
@@ -190,6 +191,7 @@ const Research = () => {
     <div className="research-container">
       <h1>Research</h1>
 
+      {/* Dynamic search bar */}
       <div className="search-bar">
         <input
           type="text"
@@ -199,6 +201,7 @@ const Research = () => {
         />
       </div>
 
+      {/* Counter showing the number of currently visible entries */}
       <div className="counter">
         <p>Showing {filteredItems.length} entries</p>
       </div>
@@ -235,25 +238,97 @@ const Research = () => {
 
       <ul className="research-list">
         {filteredItems.map((item) => (
-          <li key={item.id} className="research-item">
-            <h3>{item.title}</h3>
-            <p>{item.summary}</p>
-            <p>Type: {item.type}</p>
-            <p>
-              Link:{" "}
-              <a href={item.link} target="_blank" rel="noopener noreferrer">
-                {item.link}
-              </a>
-            </p>
-            {user && isAdmin && (
-              <div className="button-group">
-                <button onClick={() => handleEditClick(item)}>Edit</button>
-                <button onClick={() => handleDelete(item.id)}>Delete</button>
-              </div>
-            )}
-          </li>
+          <div key={item.id} className="research-entry">
+            <li className="research-item">
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+              <p>Type: {item.type}</p>
+              <p>
+                Link:{" "}
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.link}
+                </a>
+              </p>
+              {user && isAdmin && (
+                <div className="button-group">
+                  <button
+                    className="edit-btn"
+                    onClick={() => handleEditClick(item)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
+            </li>
+            <hr />
+          </div>
         ))}
       </ul>
+
+      {editingId && (
+        <form onSubmit={handleUpdate}>
+          <input
+            value={editTitle}
+            onChange={(e) => setEditTitle(e.target.value)}
+            placeholder="Title"
+            required
+          />
+          <input
+            value={editSummary}
+            onChange={(e) => setEditSummary(e.target.value)}
+            placeholder="Summary"
+            required
+          />
+          <input
+            value={editType}
+            onChange={(e) => setEditType(e.target.value)}
+            placeholder="Type"
+            required
+          />
+          <input
+            value={editLink}
+            onChange={(e) => setEditLink(e.target.value)}
+            placeholder="Link URL"
+            required
+          />
+          <button type="submit">Update Item</button>
+          <button onClick={() => setEditingId(null)}>Cancel</button>
+        </form>
+      )}
+
+      {user ? (
+        <button onClick={handleLogout}>Logout</button>
+      ) : (
+        <details className="login-container">
+          <summary>Login</summary>
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit">Login</button>
+          </form>
+          {errorMessage && (
+            <p className="error-message" style={{ color: "red" }}>
+              {errorMessage}
+            </p>
+          )}
+        </details>
+      )}
     </div>
   );
 };
