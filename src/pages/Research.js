@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -97,27 +103,49 @@ const Research = () => {
     }
   };
 
+  // Function to Delete a Research Item from Firestore (Admin Only)
+  const handleDelete = async (id) => {
+    if (!isAdmin) return;
+
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this entry?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      await deleteDoc(doc(db, "research", id));
+      setItems(items.filter((item) => item.id !== id));
+      console.log("Item deleted:", id);
+    } catch (error) {
+      console.error("Error deleting document:", error);
+    }
+  };
+
   return (
     <div className="research-container">
       <h1>Research</h1>
 
-      {!user && (
-        <form onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
-      )}
+      <ul className="research-list">
+        {items.map((item) => (
+          <div key={item.id} className="research-entry">
+            <li className="research-item">
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+              <p>Type: {item.type}</p>
+              <p>
+                Link:{" "}
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.link}
+                </a>
+              </p>
+              {user && isAdmin && (
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
+              )}
+            </li>
+            <hr />
+          </div>
+        ))}
+      </ul>
 
       {user && <button onClick={handleLogout}>Logout</button>}
 
@@ -151,21 +179,25 @@ const Research = () => {
         </form>
       )}
 
-      <ul className="research-list">
-        {items.map((item) => (
-          <li key={item.id} className="research-item">
-            <h3>{item.title}</h3>
-            <p>{item.summary}</p>
-            <p>Type: {item.type}</p>
-            <p>
-              Link:{" "}
-              <a href={item.link} target="_blank" rel="noopener noreferrer">
-                {item.link}
-              </a>
-            </p>
-          </li>
-        ))}
-      </ul>
+      {!user && (
+        <div className="login-container">
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };
