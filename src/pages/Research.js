@@ -85,6 +85,7 @@ const Research = () => {
   };
 
   // Function to Add a New Research Item to Firestore (Admin Only)
+  // bug?
   const handleAdd = async (e) => {
     e.preventDefault();
     if (!isAdmin) return;
