@@ -1,8 +1,12 @@
-// pages/Home.js
+import { useEffect } from "react";
 import { Helmet } from "react-helmet"; // using Helmet for SEO
 import "./Home.css";
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Hadden Industries - Home";
+  }, []);
+
   return (
     <main>
       <Helmet>
@@ -14,8 +18,7 @@ export default function Home() {
       </Helmet>
       <h1>About</h1>
       <img src={require("../assets/sr-hadden.jpg")} alt="S.R. Hadden" />
-    
-      
+
       <p>
         Hadden Industries is a leading innovator in scientific research and
         advanced technologies.
