@@ -33,11 +33,9 @@ const Research = () => {
   const [editType, setEditType] = useState("");
   const [editLink, setEditLink] = useState("");
 
-  // Fetch research items, ensuring visibility for all users
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        console.log("Fetching research items...");
         const querySnapshot = await getDocs(collection(db, "research"));
         const dataArr = querySnapshot.docs.map((doc) => ({
           id: doc.id,
@@ -52,31 +50,25 @@ const Research = () => {
     fetchItems();
   }, []);
 
-  // Authentication status check
   useEffect(() => {
     onAuthStateChanged(auth, (loggedInUser) => {
-      console.log("User detected:", loggedInUser);
       setUser(loggedInUser);
       setIsAdmin(loggedInUser?.uid === ADMIN_UID);
     });
   }, []);
 
-  // Function to handle admin login
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("Admin logged in!");
     } catch (error) {
       console.error("Login failed", error);
     }
   };
 
-  // Function to handle logout
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      console.log("Logged out");
       setUser(null);
       setIsAdmin(false);
     } catch (error) {
@@ -84,8 +76,6 @@ const Research = () => {
     }
   };
 
-  // Function to Add a New Research Item to Firestore (Admin Only)
-  // bug?
   const handleAdd = async (e) => {
     e.preventDefault();
     if (!isAdmin) return;
@@ -110,7 +100,6 @@ const Research = () => {
     }
   };
 
-  // Function to Delete a Research Item from Firestore (Admin Only)
   const handleDelete = async (id) => {
     if (!isAdmin) return;
 
@@ -122,13 +111,11 @@ const Research = () => {
     try {
       await deleteDoc(doc(db, "research", id));
       setItems(items.filter((item) => item.id !== id));
-      console.log("Item deleted:", id);
     } catch (error) {
       console.error("Error deleting document:", error);
     }
   };
 
-  // Function to Enable Edit Mode
   const handleEditClick = (item) => {
     setEditingId(item.id);
     setEditTitle(item.title);
@@ -137,7 +124,6 @@ const Research = () => {
     setEditLink(item.link);
   };
 
-  // Function to Update Firestore Entry
   const handleUpdate = async (e) => {
     e.preventDefault();
     if (!isAdmin || !editingId) return;
@@ -165,7 +151,7 @@ const Research = () => {
         )
       );
 
-      setEditingId(null); // Exit edit mode
+      setEditingId(null);
     } catch (error) {
       console.error("Error updating document:", error);
     }
@@ -174,6 +160,36 @@ const Research = () => {
   return (
     <div className="research-container">
       <h1>Research</h1>
+
+      {isAdmin && (
+        <form onSubmit={handleAdd}>
+          <input
+            value={newTitle}
+            onChange={(e) => setNewTitle(e.target.value)}
+            placeholder="Title"
+            required
+          />
+          <input
+            value={newSummary}
+            onChange={(e) => setNewSummary(e.target.value)}
+            placeholder="Summary"
+            required
+          />
+          <input
+            value={newType}
+            onChange={(e) => setNewType(e.target.value)}
+            placeholder="Type"
+            required
+          />
+          <input
+            value={newLink}
+            onChange={(e) => setNewLink(e.target.value)}
+            placeholder="Link URL"
+            required
+          />
+          <button type="submit">Add Item</button>
+        </form>
+      )}
 
       <ul className="research-list">
         {items.map((item) => (
@@ -241,9 +257,9 @@ const Research = () => {
         </form>
       )}
 
-      {user && <button onClick={handleLogout}>Logout</button>}
-
-      {!user && (
+      {user ? (
+        <button onClick={handleLogout}>Logout</button>
+      ) : (
         <div className="login-container">
           <form onSubmit={handleLogin}>
             <input
