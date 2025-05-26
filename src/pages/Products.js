@@ -1,6 +1,8 @@
+// src/pages/Products.js
 import React, { useEffect } from "react";
 import "./Products.css";
 import BackToTop from "../components/BackToTop";
+import useScrollToHash from "../hooks/useScrollToHash";
 
 const productsData = [
   {
@@ -109,14 +111,14 @@ const productsData = [
     products: [
       {
         name: "Product 1",
-        model: "Model MD1",
+        model: "Model S1",
         number: "S114",
         dimensions: "22x18x9 cm",
         weight: "1.2kg",
       },
       {
         name: "Product 2",
-        model: "Model MD2",
+        model: "Model S2",
         number: "S115",
         dimensions: "28x20x10 cm",
         weight: "1.6kg",
@@ -129,14 +131,14 @@ const productsData = [
     products: [
       {
         name: "Product 1",
-        model: "Model MD1",
+        model: "Model WT1",
         number: "WT114",
         dimensions: "22x18x9 cm",
         weight: "1.2kg",
       },
       {
         name: "Product 2",
-        model: "Model MD2",
+        model: "Model WT2",
         number: "WT115",
         dimensions: "24x20x10 cm",
         weight: "1.64kg",
@@ -149,6 +151,9 @@ const Products = () => {
   useEffect(() => {
     document.title = "Hadden Industries - Products";
   }, []);
+
+  // Activate the custom hook to scroll to a hash element
+  useScrollToHash();
 
   return (
     <div className="products-container">
@@ -163,7 +168,7 @@ const Products = () => {
       </nav>
       {productsData.map((category, index) => (
         <div key={index} id={category.anchor}>
-          <h2 id={category.anchor}>{category.category}</h2>
+          <h2>{category.category}</h2>
           {category.products.map((product, idx) => (
             <div key={idx} className="product">
               <h3>{product.name}</h3>
@@ -183,7 +188,7 @@ const Products = () => {
           ))}
         </div>
       ))}
-      <BackToTop /> {/* Add the BackToTop button */}
+      <BackToTop /> {/* BackToTop button component */}
     </div>
   );
 };
