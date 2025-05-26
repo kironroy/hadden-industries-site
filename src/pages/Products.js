@@ -103,6 +103,46 @@ const productsData = [
       },
     ],
   },
+  {
+    category: "Solar",
+    anchor: "solar",
+    products: [
+      {
+        name: "Product 1",
+        model: "Model MD1",
+        number: "S114",
+        dimensions: "22x18x9 cm",
+        weight: "1.2kg",
+      },
+      {
+        name: "Product 2",
+        model: "Model MD2",
+        number: "S115",
+        dimensions: "28x20x10 cm",
+        weight: "1.6kg",
+      },
+    ],
+  },
+  {
+    category: "Water",
+    anchor: "water",
+    products: [
+      {
+        name: "Product 1",
+        model: "Model MD1",
+        number: "WT114",
+        dimensions: "22x18x9 cm",
+        weight: "1.2kg",
+      },
+      {
+        name: "Product 2",
+        model: "Model MD2",
+        number: "WT115",
+        dimensions: "24x20x10 cm",
+        weight: "1.64kg",
+      },
+    ],
+  },
 ];
 
 const Products = () => {
