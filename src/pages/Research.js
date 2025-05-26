@@ -32,6 +32,8 @@ const Research = () => {
   const [editSummary, setEditSummary] = useState("");
   const [editType, setEditType] = useState("");
   const [editLink, setEditLink] = useState("");
+  // New state for the dynamic search input
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -157,9 +159,36 @@ const Research = () => {
     }
   };
 
+  // Filter items by title, summary, or type and sort alphabetically by title
+  const filteredItems = items
+    .filter((item) => {
+      const lowerCaseQuery = searchQuery.toLowerCase();
+      return (
+        item.title.toLowerCase().includes(lowerCaseQuery) ||
+        item.summary.toLowerCase().includes(lowerCaseQuery) ||
+        item.type.toLowerCase().includes(lowerCaseQuery)
+      );
+    })
+    .sort((a, b) => a.title.localeCompare(b.title));
+
   return (
     <div className="research-container">
       <h1>Research</h1>
+
+      {/* Dynamic search bar */}
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="🔍 Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
+
+      {/* Counter showing the number of currently visible entries */}
+      <div className="counter">
+        <p>Showing {filteredItems.length} entries</p>
+      </div>
 
       {isAdmin && (
         <form onSubmit={handleAdd}>
@@ -192,7 +221,7 @@ const Research = () => {
       )}
 
       <ul className="research-list">
-        {items.map((item) => (
+        {filteredItems.map((item) => (
           <div key={item.id} className="research-entry">
             <li className="research-item">
               <h3>{item.title}</h3>
