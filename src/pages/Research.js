@@ -32,8 +32,9 @@ const Research = () => {
   const [editSummary, setEditSummary] = useState("");
   const [editType, setEditType] = useState("");
   const [editLink, setEditLink] = useState("");
-  // New state for the dynamic search input
+  // New state for the dynamic search input and error message
   const [searchQuery, setSearchQuery] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -61,10 +62,23 @@ const Research = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    // Reset any previous error
+    setErrorMessage("");
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // Check if the logged in user is the ADMIN
+      if (userCredential.user.uid !== ADMIN_UID) {
+        setErrorMessage(`You are not authorized to sign in email: ${email}`);
+        await signOut(auth); // sign out unauthorized user immediately
+        return;
+      }
     } catch (error) {
       console.error("Login failed", error);
+      setErrorMessage("Login failed. Please try again.");
     }
   };
 
@@ -73,6 +87,8 @@ const Research = () => {
       await signOut(auth);
       setUser(null);
       setIsAdmin(false);
+      // Also clear any error message on logout
+      setErrorMessage("");
     } catch (error) {
       console.error("Logout failed", error);
     }
@@ -179,7 +195,7 @@ const Research = () => {
       <div className="search-bar">
         <input
           type="text"
-          placeholder="🔍 Search"
+          placeholder="🔍 Search by title, summary, or type..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -289,7 +305,8 @@ const Research = () => {
       {user ? (
         <button onClick={handleLogout}>Logout</button>
       ) : (
-        <div className="login-container">
+        <details className="login-container">
+          <summary>Login</summary>
           <form onSubmit={handleLogin}>
             <input
               type="email"
@@ -305,7 +322,12 @@ const Research = () => {
             />
             <button type="submit">Login</button>
           </form>
-        </div>
+          {errorMessage && (
+            <p className="error-message" style={{ color: "red" }}>
+              {errorMessage}
+            </p>
+          )}
+        </details>
       )}
     </div>
   );
