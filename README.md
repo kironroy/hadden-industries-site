@@ -3,10 +3,19 @@
 
 ## Navigation 
 
+- [Notes](#notes)
 - [Research](#research)
 - [Dependency](#dependency)
 - [Sources](#sources)
 <hr>
+
+## Notes
+- [Sketch 1](https://cdn.glitch.global/2a320c50-0d4b-4d99-9f9d-7334d9bc4008/hadden1.webp?v=1748230361144)
+
+- [Sketch 2](https://cdn.glitch.global/2a320c50-0d4b-4d99-9f9d-7334d9bc4008/hadden2.webp?v=1748230372572)
+
+- [Sketch 3](https://cdn.glitch.global/2a320c50-0d4b-4d99-9f9d-7334d9bc4008/hadden3.webp?v=1748230355246)
+
 
 ## Research
 ## Dependency
