@@ -55,19 +55,19 @@ const techData = [
   {
     title: "Batteries",
     description: "Efficient battery tech.",
-    link: "/products#batteries",
+    linklink: "/products#algae",
     icon: <FaBatteryFull className="icon-style" />,
   },
   {
     title: "Fusion",
     description: "Clean nuclear fusion energy.",
-    link: "/products#fusion",
+    llink: "/products#algae",
     icon: <FaAtom className="icon-style" />,
   },
   {
     title: "Hydrogen",
     description: "Advancing hydrogen energy.",
-    link: "/products#hydrogen",
+    linlink: "/products#algae",
     icon: <FaWind className="icon-style" />,
   },
   {
@@ -79,13 +79,13 @@ const techData = [
   {
     title: "Solar",
     description: "Next-gen solar tech.",
-    link: "/products#solar",
+    link: "/products#algae",
     icon: <FaSun className="icon-style" />,
   },
   {
     title: "Water",
     description: "Advanced water purification.",
-    link: "/products#water",
+    link: "/products#algae",
     icon: <FaWater className="icon-style" />,
   },
 ];
