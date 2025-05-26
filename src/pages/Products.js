@@ -156,7 +156,7 @@ const Products = () => {
       {/* Navigation Links */}
       <nav className="product-nav">
         {productsData.map((category) => (
-          <a key={category.anchor} href={`#${category.anchor}`}>
+          <a key={category.anchor} href={`${category.anchor}`}>
             {category.category}
           </a>
         ))}
