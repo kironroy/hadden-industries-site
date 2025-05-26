@@ -61,19 +61,19 @@ const techData = [
   {
     title: "Fusion",
     description: "Clean nuclear fusion energy.",
-    llink: "/products#algae",
+    link: "/products#algae",
     icon: <FaAtom className="icon-style" />,
   },
   {
     title: "Hydrogen",
     description: "Advancing hydrogen energy.",
-    linlink: "/products#algae",
+    link: "/products#algae",
     icon: <FaWind className="icon-style" />,
   },
   {
     title: "Materials Design",
     description: "Innovative materials.",
-    link: "/products#materials-design",
+    link:  link: "/products#algae",
     icon: <FaFlask className="icon-style" />,
   },
   {
