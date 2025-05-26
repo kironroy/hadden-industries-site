@@ -17,6 +17,15 @@
     border-bottom: 2px solid #0505ff;
     padding-bottom: 5px;
   }
+
+  .product-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
   
   .product {
     background: #f8f9fa;
@@ -27,12 +36,12 @@
   }
   
   .product h3 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 10px;
   }
   
   .product p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 5px 0;
   }
   
@@ -43,19 +52,19 @@
     }
   
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
     }
   
     h2 {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
     }
   
     .product h3 {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
     }
   
     .product p {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
   }
   
