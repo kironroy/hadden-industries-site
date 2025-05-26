@@ -1,3 +1,4 @@
+import BackToTop from "../components/BackToTop";
 import React, { useEffect, useState } from "react";
 import {
   collection,
@@ -194,7 +195,6 @@ const Research = () => {
   return (
     <div className="research-container">
       <h1>Research</h1>
-
       {/* Dynamic search bar */}
       <div className="search-bar">
         <input
@@ -204,12 +204,10 @@ const Research = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-
       {/* Counter showing the number of currently visible entries */}
       <div className="counter">
         <p>Showing {filteredItems.length} entries</p>
       </div>
-
       {isAdmin && (
         <form onSubmit={handleAdd}>
           <input
@@ -239,7 +237,6 @@ const Research = () => {
           <button type="submit">Add Item</button>
         </form>
       )}
-
       <ul className="research-list">
         {filteredItems.map((item) => (
           <div key={item.id} className="research-entry">
@@ -274,7 +271,6 @@ const Research = () => {
           </div>
         ))}
       </ul>
-
       {editingId && (
         <form onSubmit={handleUpdate}>
           <input
@@ -305,7 +301,6 @@ const Research = () => {
           <button onClick={() => setEditingId(null)}>Cancel</button>
         </form>
       )}
-
       {user ? (
         <button onClick={handleLogout}>Logout</button>
       ) : (
@@ -333,6 +328,7 @@ const Research = () => {
           )}
         </details>
       )}
+      <BackToTop /> {/* Add the BackToTop button */}
     </div>
   );
 };

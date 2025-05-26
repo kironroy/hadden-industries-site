@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./Products.css";
+import BackToTop from "../components/BackToTop";
 
 const productsData = [
   {
@@ -112,7 +113,6 @@ const Products = () => {
   return (
     <div className="products-container">
       <h1>Products</h1>
-
       {/* Navigation Links */}
       <nav className="product-nav">
         {productsData.map((category) => (
@@ -121,7 +121,6 @@ const Products = () => {
           </a>
         ))}
       </nav>
-
       {productsData.map((category, index) => (
         <div key={index} id={category.anchor}>
           <h2 id={category.anchor}>{category.category}</h2>
@@ -144,6 +143,7 @@ const Products = () => {
           ))}
         </div>
       ))}
+      <BackToTop /> {/* Add the BackToTop button */}
     </div>
   );
 };
