@@ -29,6 +29,18 @@ html {
     margin-bottom: 20px;
     font-weight: 500;
     font-size: 1.4rem;
+    margin-left: 20px;
+  }
+
+  .product-nav a {
+    text-decoration: underline;
+    color: #0505ff;
+    transition: color 0.3s ease;
+    font-weight: 500;
+  }
+
+  h2 {
+    text-align: center;
   }
   
   .product {
@@ -45,7 +57,7 @@ html {
   }
   
   .product p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin: 5px 0;
   }
   
@@ -68,7 +80,7 @@ html {
     }
   
     .product p {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
   }
   
