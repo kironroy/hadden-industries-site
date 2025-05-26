@@ -37,6 +37,10 @@ const Research = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
+    document.title = "Hadden Industries - Research";
+  }, []);
+
+  useEffect(() => {
     const fetchItems = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "research"));
