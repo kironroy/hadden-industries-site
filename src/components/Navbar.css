@@ -29,7 +29,7 @@
 .logo {
   font-size: 2.5rem;
   font-weight: 500;
-  color: #ffff05;
+  color: #fff;
   letter-spacing: -1px;
   text-decoration: none; /* Ensures the H1 text itself has no underline */
 }
@@ -57,7 +57,7 @@
   background: none;
   border: none;
   font-size: 3.4rem;
-  color: white;
+  color: #fff;
   cursor: pointer;
   padding-bottom: 30px; /* Adjusted for better alignment */
 }
