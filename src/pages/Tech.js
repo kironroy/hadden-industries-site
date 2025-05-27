@@ -53,7 +53,7 @@ const techData = [
   },
   {
     title: "Batteries",
-    description: "Efficient battery tech.",
+    description: "Efficient batteries.",
     link: "/products#batteries",
     icon: <FaBatteryFull className="icon-style" />,
   },
@@ -77,7 +77,7 @@ const techData = [
   },
   {
     title: "Solar",
-    description: "Next-gen solar tech.",
+    description: "Next generation solar power.",
     link: "/products#solar",
     icon: <FaSun className="icon-style" />,
   },
