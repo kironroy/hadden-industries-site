@@ -76,6 +76,12 @@ nav {
   color: #0505ff; /* Default blue for links */
 }
 
+.tech-link a:hover {
+  color: #4B0082;
+  font-weight: 800;
+  text-decoration: underline; /* Underline on hover */
+}
+
 .icon-style {
   font-size: 1.5rem;
   margin-right: 10px; /* Space between icon and text */

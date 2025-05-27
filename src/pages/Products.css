@@ -39,6 +39,12 @@ html {
     font-weight: 500;
   }
 
+  .product-nav a:hover {
+    color: #4B0082;
+    font-weight: 800;
+    text-decoration: underline;
+  }
+
   h2 {
     text-align: center;
   }

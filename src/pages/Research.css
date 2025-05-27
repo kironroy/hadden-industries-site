@@ -28,6 +28,12 @@ body {
   max-width: 100%; /* Prevents links from exceeding container */
 }
 
+.research-item a:hover {
+  color: #4B0082;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
 
 /* Form Styling */
 form {

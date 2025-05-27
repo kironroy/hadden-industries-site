@@ -34,6 +34,12 @@
   text-decoration: none; /* Ensures the H1 text itself has no underline */
 }
 
+.logo:hover {
+  color: #ffff05;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -49,6 +55,8 @@
 
 .nav-links li a:hover {
   color: #ffff05;
+  font-weight: 800;
+  text-decoration: underline;
 }
 
 /* Mobile Styles */
