@@ -1,13 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
 * {
   font-family: "IBM Plex Sans", sans-serif;
-}
+} */
 
 .home-container {
   text-align: center;
   font-weight: 700;
 }
+
+
 
 h1 {
   margin-bottom: 20px;
@@ -15,8 +17,11 @@ h1 {
   font-size: 3rem;
   letter-spacing: -0.9px;
 }
+.about {
+  font-weight: 450;
+}
 
-p {
+p{
   font-size: 1.2em;
   margin-bottom: 20px;
   line-height: 1.5;
