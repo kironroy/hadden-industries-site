@@ -10,6 +10,7 @@ import {
   FaWind,
   FaBatteryFull,
 } from "react-icons/fa"; // Importing icons
+import "../index.css"; // Global styles
 import "./Tech.css"; // CSS file
 
 export default function Tech() {
@@ -23,7 +24,7 @@ export default function Tech() {
         />
       </Helmet>
 
-      <h1 className="tech-title">Technologies</h1>
+      <h1>Technologies</h1>
 
       <div className="tech-grid">
         {techData.map((tech, index) => (

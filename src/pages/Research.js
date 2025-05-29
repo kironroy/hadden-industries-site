@@ -14,6 +14,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { db, auth } from "../firebase";
+import "../index.css";
 import "./Research.css";
 
 const ADMIN_UID = process.env.REACT_APP_ADMIN_UID;

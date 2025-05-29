@@ -1,14 +1,7 @@
-/* @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
-
-* {
-  font-family: "IBM Plex Sans", sans-serif;
-} */
-
 .home-container {
   text-align: center;
   font-weight: 700;
 }
-
 
 
 h1 {
@@ -41,9 +34,7 @@ img {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 3rem;
-  }
+
 
   p {
     font-size: 1.3em;

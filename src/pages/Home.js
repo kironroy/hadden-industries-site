@@ -1,5 +1,6 @@
 // pages/Home.js
 import { Helmet } from "react-helmet"; // using Helmet for SEO
+import "../index.css";
 import "./Home.css";
 
 export default function Home() {

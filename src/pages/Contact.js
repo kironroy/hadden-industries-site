@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../index.css";
 import "./Contact.css";
 
 const Contact = () => {
@@ -23,7 +24,7 @@ const Contact = () => {
 
   return (
     <div className="contact-container">
-      <h2>Contact Us</h2>
+      <h1>Contact Us</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Name:

@@ -1,25 +1,9 @@
-html {
-  scroll-behavior: smooth;
-}
-
-.products-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
   h2 {
     margin-top: 20px;
     font-size: 1.5rem;
     border-bottom: 2px solid #b1b1b1;
     padding-bottom: 5px;
+    text-align: center;
   }
 
   .product-nav{
@@ -45,15 +29,7 @@ html {
     text-decoration: underline;
   }
 
-  h2 {
-    text-align: center;
-  }
-
-
-
-
-  
-  .product {
+.product {
     background: #f8f9fa;
     padding: 15px;
     margin: 10px 0;
@@ -69,28 +45,5 @@ html {
   .product p {
     font-size: 1.3rem;
     margin: 5px 0;
-  }
-  
-  /* Responsive Design */
-  @media screen and (max-width: 600px) {
-    .products-container {
-      padding: 10px;
-    }
-  
-    h1 {
-      font-size: 1.9rem;
-    }
-  
-    h2 {
-      font-size: 1.5rem;
-    }
-  
-    .product h3 {
-      font-size: 1.3rem;
-    }
-  
-    .product p {
-      font-size: 1.2rem;
-    }
   }
   

@@ -4,6 +4,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import lightMarkerIcon from "./lig_map_marker.svg";
 import darkMarkerIcon from "./drk_map_marker.svg";
+import "../index.css";
+import "./Locations.css";
 
 function Locations() {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -32,7 +34,7 @@ function Locations() {
 
   return (
     <div>
-      <h2>Our main office is Nairobi, Kenya</h2>
+      <h1>Nairobi, Kenya</h1>
       <MapContainer
       // Nairobi, Kenya coordinates: [-1.286389, 36.817223]
         center={[-1.286389, 36.817223]}
