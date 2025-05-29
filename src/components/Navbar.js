@@ -39,6 +39,11 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
+          <Link to="/locations" onClick={handleLinkClick}>
+            Locations
+          </Link>
+        </li>
+        <li>
           <Link to="/contact" onClick={handleLinkClick}>
             Contact
           </Link>
