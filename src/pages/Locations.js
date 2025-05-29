@@ -34,16 +34,16 @@ function Locations() {
 
   return (
     <div>
-      <h1>Hokkaido, Japan</h1>
+      <h1>Muroran, Japan</h1>
       <MapContainer
-        // Nairobi, Kenya coordinates: [-1.286389, 36.817223]
-        // Hokkaido, Japan coordinates: [43.2203, 142.8635]
-        center={[43.2203, 142.8635]}
+      
+
+        center={[42.3167, 140.9667]}
         zoom={13}
         style={{ height: "400px", width: "100%" }}
       >
         <TileLayer url={tileUrl} />
-        <Marker position={[43.2203, 142.8635]} icon={markerIcon}>
+        <Marker position={[42.3167, 140.9667]} icon={markerIcon}>
           <Popup>Hadden Industries Headquarters</Popup>
         </Marker>
       </MapContainer>
