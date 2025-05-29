@@ -1,49 +1,83 @@
+h2 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #b1b1b1;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+/* Product Navigation */
+.product-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin-left: 20px;
+}
+
+.product-nav a {
+  text-decoration: underline;
+  color: #0505ff;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.product-nav a:hover {
+  color: #4B0082;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+/* Product Card */
+.product {
+  background: #f8f9fa;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.product p {
+  font-size: 1.3rem;
+  margin: 5px 0;
+}
+
+/* Dark Mode Styling */
+@media (prefers-color-scheme: dark) {
   h2 {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    border-bottom: 2px solid #b1b1b1;
-    padding-bottom: 5px;
-    text-align: center;
+    border-bottom: 2px solid #666 !important;
+    color: #e0e0e0 !important;
   }
 
-  .product-nav{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 20px;
-    font-weight: 500;
-    font-size: 1.4rem;
-    margin-left: 20px;
+  .product-nav {
+    color: #e0e0e0 !important;
   }
 
   .product-nav a {
-    text-decoration: underline;
-    color: #0505ff;
-    transition: color 0.3s ease;
-    font-weight: 500;
+    color: #bb86fc !important;
   }
 
   .product-nav a:hover {
-    color: #4B0082;
-    font-weight: 800;
-    text-decoration: underline;
+    color: #ff79c6 !important;
   }
 
-.product {
-    background: #f8f9fa;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  .product {
+    background: #1e1e1e !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
   }
-  
+
   .product h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
+    color: #ffffff !important;
   }
-  
+
   .product p {
-    font-size: 1.3rem;
-    margin: 5px 0;
+    color: #b0b0b0 !important;
   }
-  
+}

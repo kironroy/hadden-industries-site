@@ -61,15 +61,30 @@
 }
 
 /* Mobile Styles */
+/* Mobile Styles */
 .hamburger {
   display: none;
-  background: none;
-  border: none;
+  background: none !important; /* Ensure no background */
+  border: none !important; /* Remove any border */
   font-size: 3.4rem;
   color: #fff;
   cursor: pointer;
-  padding-bottom: 30px; /* Adjusted for better alignment */
+  padding-bottom: 30px;
 }
+
+/* Remove hover effect */
+.hamburger:hover {
+  background: none !important;
+  border: none !important;
+  color: inherit; /* Keep default text color */
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar .open {
+    background-color: #4e1921 !important; /* Dark mode background */
+  }
+}
+
 
 /* Responsive Menu */
 @media (max-width: 1024px) { 
@@ -112,3 +127,5 @@
     margin: 10px 0; /* Adjusted spacing */
   }
 }
+
+

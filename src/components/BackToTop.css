@@ -1,23 +1,29 @@
 .back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #0505ff;
-    color: white;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    opacity: 80%;
-    transition: opacity 0.3s ease-in-out;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0505ff;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 80%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.back-to-top.show {
+  opacity: 80%;
+}
+
+.back-to-top.hide {
+  opacity: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .back-to-top {
+    background: #cf6679 !important; /* Green background for dark mode */
+    opacity: 95%;
   }
-  
-  .back-to-top.show {
-    opacity: 80%;
-  }
-  
-  .back-to-top.hide {
-    opacity: 0;
-  }
-  
+}

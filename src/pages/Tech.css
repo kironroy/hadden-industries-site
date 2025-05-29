@@ -1,11 +1,10 @@
-
 p {
   font-weight: 400;
   font-size: 1.3em;
 }
 
 .tech-container {
-  background-color: #efefef; /* Slightly darker than white */
+  background-color: #efefef; /* Light mode background */
   min-height: 100vh;
   padding: 20px;
 }
@@ -19,8 +18,6 @@ nav {
   font-size: 3rem; /* Bigger H2 for mobile */
   letter-spacing: -0.9px;
 }
-
-
 
 .tech-grid {
   display: flex;
@@ -69,6 +66,39 @@ nav {
   color: #424242; 
 }
 
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  .tech-container {
+    background-color: #121212 !important; /* Dark background */
+    color: #e0e0e0 !important; /* Light text */
+  }
+
+  .tech-card {
+    background: #1e1e1e !important; /* Dark card background */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .tech-heading {
+    color: #ffffff !important; /* White text for contrast */
+  }
+
+  .tech-description {
+    color: #b0b0b0 !important; /* Softer gray for readability */
+  }
+
+  .tech-link a {
+    color: #bb86fc !important; /* Purple accent for links */
+  }
+
+  .tech-link a:hover {
+    color: #ff79c6 !important; /* Brighter hover effect */
+  }
+
+  .icon-style {
+    color: #e0e0e0 !important; /* Light icons */
+  }
+}
+
 /* Adjust sizes for mobile */
 @media (max-width: 768px) {
   .tech-title {
@@ -86,6 +116,7 @@ nav {
   .tech-container {
     margin-top: -4px;
   }
+
   .tech-heading {
     font-size: 1.8rem;
   }
