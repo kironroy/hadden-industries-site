@@ -45,7 +45,8 @@ h1 {
 /* Input Fields */
 input {
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
+  background-color: #ffffce;
   border-radius: 5px;
   font-size: 1.3rem;
   width: 100%;
