@@ -10,13 +10,13 @@
 <hr>
 
 ## Notes
-- [Sketch 1](https://cdn.glitch.global/2a320c50-0d4b-4d99-9f9d-7334d9bc4008/hadden1.webp?v=1748230361144)
+- [Sketch 1](https://kironroy.dev//hadden1.webp)
 
-- [Sketch 2](https://cdn.glitch.global/2a320c50-0d4b-4d99-9f9d-7334d9bc4008/hadden2.webp?v=1748230372572)
+- [Sketch 2](https://kironroy.dev//hadden2.webp)
 
-- [Sketch 3](https://cdn.glitch.global/2a320c50-0d4b-4d99-9f9d-7334d9bc4008/hadden3.webp?v=1748230355246)
+- [Sketch 3](https://kironroy.dev//hadden3.webp)
 
-- [Sketch 4](https://cdn.glitch.global/2a320c50-0d4b-4d99-9f9d-7334d9bc4008/hadden4.webp?v=1748279350005)
+- [Sketch 4](https://kironroy.dev//hadden4.webp)
 
 
 ## Research
